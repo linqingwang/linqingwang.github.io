@@ -80,13 +80,41 @@
       color: var(--muted);
     }
     .scholar-link { margin-top: 0.75rem; }
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .profile-text { flex: 1; min-width: 14rem; }
+    .profile-photo {
+      width: 9.5rem;
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    @media (max-width: 32rem) {
+      .profile-header { flex-direction: column-reverse; align-items: center; text-align: center; }
+      .profile-text { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>Linqing Wang <span lang="zh" style="font-weight: 400; color: var(--muted)">(王林青)</span></h1>
-      <p class="subtitle">Tencent Hunyuan · Multimodal generation &amp; computer vision</p>
+    <header class="profile-header">
+      <div class="profile-text">
+        <h1>Linqing Wang <span lang="zh" style="font-weight: 400; color: var(--muted)">(王林青)</span></h1>
+        <p class="subtitle" style="margin-bottom: 0">Tencent Hunyuan · Multimodal generation &amp; computer vision</p>
+      </div>
+      <img
+        class="profile-photo"
+        src="linqing.pic.jpg"
+        alt="Linqing Wang"
+        width="152"
+      />
     </header>
 
     <section id="about">
