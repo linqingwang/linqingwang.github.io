@@ -665,15 +665,8 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    (function loadGitHubStars() {
-      function formatStars(n) {
-        if (n >= 1000) {
-          var k = n / 1000;
-          return (k >= 10 ? Math.round(k) : k.toFixed(1).replace(/\.0$/, "")) + "k ★";
-        }
-        return n + " ★";
-      }
-
+    (function initGitHubStars() {
+      var REFRESH_MS = 3 * 60 * 1000;
       var links = document.querySelectorAll("a[data-repo]");
       if (!links.length) return;
 
@@ -681,6 +674,35 @@
       links.forEach(function (a) {
         if (repos.indexOf(a.dataset.repo) === -1) repos.push(a.dataset.repo);
       });
+
+      var lastRefresh = 0;
+      var refreshTimer = null;
+
+      function parseStarCount(raw) {
+        var s = String(raw).trim().replace(/,/g, "");
+        var suffixMatch = s.match(/^([\d.]+)\s*([kKmM])$/);
+        if (suffixMatch) {
+          var num = parseFloat(suffixMatch[1]);
+          if (isNaN(num)) return null;
+          var unit = suffixMatch[2].toLowerCase();
+          if (unit === "k") return Math.round(num * 1000);
+          if (unit === "m") return Math.round(num * 1000000);
+        }
+        var n = parseInt(s, 10);
+        return isNaN(n) ? null : n;
+      }
+
+      function formatStars(n) {
+        if (n >= 1000000) {
+          var m = n / 1000000;
+          return (m >= 10 ? Math.round(m) : m.toFixed(1).replace(/\.0$/, "")) + "m";
+        }
+        if (n >= 1000) {
+          var k = n / 1000;
+          return (k >= 10 ? Math.round(k) : k.toFixed(1).replace(/\.0$/, "")) + "k";
+        }
+        return String(n);
+      }
 
       function githubIcon() {
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -697,56 +719,94 @@
         return svg;
       }
 
-      function attachStars(starMap) {
+      function ensureStarBadge(link) {
+        var span = link.querySelector(".gh-stars");
+        if (span) return span.querySelector(".gh-stars-count");
+
+        span = document.createElement("span");
+        span.className = "gh-stars";
+
+        var sep = document.createTextNode("· ");
+        span.appendChild(sep);
+        span.appendChild(githubIcon());
+
+        var countEl = document.createElement("span");
+        countEl.className = "gh-stars-count";
+        countEl.textContent = "…";
+        span.appendChild(countEl);
+
+        link.appendChild(document.createTextNode(" "));
+        link.appendChild(span);
+        return countEl;
+      }
+
+      function renderStars(starMap) {
         links.forEach(function (a) {
           var count = starMap[a.dataset.repo];
           if (count == null) return;
-          if (a.querySelector(".gh-stars")) return;
-          var span = document.createElement("span");
-          span.className = "gh-stars";
-          span.setAttribute("aria-label", count + " GitHub stars");
-          span.appendChild(document.createTextNode("·"));
-          span.appendChild(githubIcon());
-          span.appendChild(document.createTextNode(formatStars(count)));
-          a.appendChild(document.createTextNode(" "));
-          a.appendChild(span);
+          var countEl = ensureStarBadge(a);
+          countEl.textContent = formatStars(count);
+          var wrap = a.querySelector(".gh-stars");
+          if (wrap) wrap.setAttribute("aria-label", count + " GitHub stars");
         });
       }
 
-      Promise.all(
-        repos.map(function (repo) {
-          return fetch("https://api.github.com/repos/" + repo)
-            .then(function (res) {
-              if (!res.ok) throw new Error(res.status);
-              return res.json();
-            })
-            .then(function (data) {
-              return { repo: repo, stars: data.stargazers_count };
-            })
-            .catch(function () {
-              return fetch("https://img.shields.io/github/stars/" + repo + ".json")
-                .then(function (r) {
-                  return r.ok ? r.json() : null;
-                })
-                .then(function (badge) {
-                  var raw = badge && (badge.message || badge.value);
-                  if (raw == null) return null;
-                  var n = parseInt(String(raw).replace(/,/g, ""), 10);
-                  return !isNaN(n) ? { repo: repo, stars: n } : null;
-                })
-                .catch(function () {
-                  return null;
-                });
-            });
+      function fetchRepoStars(repo) {
+        return fetch("https://api.github.com/repos/" + repo + "?t=" + Date.now(), {
+          headers: { Accept: "application/vnd.github+json" },
         })
-      ).then(function (results) {
-        var starMap = {};
-        results.forEach(function (item) {
-          if (item && item.repo != null && item.stars != null) {
-            starMap[item.repo] = item.stars;
-          }
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.status);
+            return res.json();
+          })
+          .then(function (data) {
+            return { repo: repo, stars: data.stargazers_count };
+          })
+          .catch(function () {
+            return fetch("https://img.shields.io/github/stars/" + repo + ".json?_=" + Date.now())
+              .then(function (r) {
+                return r.ok ? r.json() : null;
+              })
+              .then(function (badge) {
+                var raw = badge && (badge.message || badge.value);
+                if (raw == null) return null;
+                var n = parseStarCount(raw);
+                return n != null ? { repo: repo, stars: n } : null;
+              })
+              .catch(function () {
+                return null;
+              });
+          });
+      }
+
+      function refreshStars() {
+        return Promise.all(repos.map(fetchRepoStars)).then(function (results) {
+          var starMap = {};
+          results.forEach(function (item) {
+            if (item && item.repo != null && item.stars != null) {
+              starMap[item.repo] = item.stars;
+            }
+          });
+          renderStars(starMap);
+          lastRefresh = Date.now();
         });
-        attachStars(starMap);
+      }
+
+      function scheduleRefresh() {
+        if (refreshTimer) clearInterval(refreshTimer);
+        refreshTimer = setInterval(refreshStars, REFRESH_MS);
+      }
+
+      repos.forEach(function (repo) {
+        document.querySelectorAll('a[data-repo="' + repo + '"]').forEach(ensureStarBadge);
+      });
+
+      refreshStars().then(scheduleRefresh);
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible" && Date.now() - lastRefresh > 60000) {
+          refreshStars();
+        }
       });
     })();
   </script>
