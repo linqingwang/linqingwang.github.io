@@ -70,8 +70,19 @@
     .pub-list li:last-child { border-bottom: none; }
     .pub-title { font-weight: 600; display: block; margin-bottom: 0.2rem; }
     .pub-meta { color: var(--muted); font-size: 0.92rem; }
-    .links-inline { margin-top: 0.35rem; font-size: 0.9rem; }
-    .links-inline a { margin-right: 0.75rem; white-space: nowrap; }
+    .links-inline {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+    }
+    .links-inline a {
+      margin-right: 0.65rem;
+      white-space: nowrap;
+    }
+    .links-inline a:last-child { margin-right: 0; }
+    .pub-venue {
+      color: var(--text);
+      font-weight: 600;
+    }
     .github-stars-badge {
       display: inline-block;
       vertical-align: middle;
@@ -129,10 +140,10 @@
       <h2>About</h2>
       <p>
         I work on large-scale multimodal foundation models and their applications at
-        <strong>Tencent Hunyuan</strong>, focusing on text-to-image / video generation,
+        <strong>Tencent Hunyuan</strong>, focusing on omni-unified multimodal interaction, text-to-image / video generation,
         unified understanding–generation models, and post-training for diffusion systems.
         I was previously involved in robotics and bionics research during graduate study
-        at <strong>Beihang University (BUAA)</strong>.
+        at Beihang University (BUAA).
       </p>
       <p class="scholar-link">
         <a href="https://scholar.google.com/citations?user=Hy12lcEAAAAJ&amp;hl=en">Google Scholar</a>
@@ -156,12 +167,15 @@
 
     <section id="publications">
       <h2>🌟 Selected publications</h2>
+      <p class="subtitle" style="margin: -0.25rem 0 0.75rem; font-size: 0.9rem;">Newest first · <span class="pub-venue">bold venue</span> = accepted conference</p>
       <ul class="pub-list">
         <li>
-          <span class="pub-title">Hierarchical SVG Tokenization: Learning Compact Visual Programs for Scalable Vector Graphics Modeling</span>
-          <span class="pub-meta">X Xing, Z Xue, Z Li, W Liang, <strong>L Wang</strong>, Z Yang, T Hang, Z Yin, Q Lu, … · 2026</span>
+          <span class="pub-title">HY-SOAR: Self-Correction for Optimal Alignment and Refinement in Diffusion Models</span>
+          <span class="pub-meta">Y Qin, <strong>L Wang</strong>, H Fei, R Zimmermann, L Bo, Q Lu, C Wang · 2026</span>
           <div class="links-inline">
-            <a href="https://arxiv.org/abs/2604.05072">[arXiv]</a>
+            <a href="https://arxiv.org/abs/2604.12617">[arXiv]</a>
+            <a href="https://github.com/Tencent-Hunyuan/HY-SOAR">[Code]</a>
+            <a href="https://hy-soar.github.io/">[Project]</a>
           </div>
         </li>
         <li>
@@ -169,50 +183,45 @@
           <span class="pub-meta">J Guo, <strong>L Wang</strong>, J Wang, Y Yue, Z Liu, Z Zhao, Q Lu, G Huang, C Wang · 2026</span>
           <div class="links-inline">
             <a href="https://arxiv.org/abs/2604.25636">[arXiv]</a>
+            <a href="https://github.com/LeapLabTHU/RvR">[Code]</a>
           </div>
         </li>
         <li>
-          <span class="pub-title">HY-SOAR: Self-Correction for Optimal Alignment and Refinement in Diffusion Models</span>
-          <span class="pub-meta">Y Qin, <strong>L Wang</strong>, H Fei, R Zimmermann, L Bo, Q Lu, C Wang · 2026</span>
+          <span class="pub-title">Hierarchical SVG Tokenization: Learning Compact Visual Programs for Scalable Vector Graphics Modeling</span>
+          <span class="pub-meta">X Xing, Z Xue, Z Li, W Liang, <strong>L Wang</strong>, Z Yang, T Hang, Z Yin, Q Lu, … · 2026</span>
           <div class="links-inline">
-            <a href="https://arxiv.org/abs/2604.12617">[arXiv]</a>
-            <a href="https://hy-soar.github.io/">[Project]</a>
-            <a href="https://github.com/Tencent-Hunyuan/HY-SOAR"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Tencent-Hunyuan/HY-SOAR?style=social&amp;label=Code" alt="HY-SOAR GitHub stars" /></a>
+            <a href="https://arxiv.org/abs/2604.05072">[arXiv]</a>
+            <a href="https://github.com/ximinng/HiVG">[Code]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">ChatUMM: Robust Context Tracking for Conversational Interleaved Generation</span>
+          <span class="pub-meta">W Dai, Z Zhao, Y Zhong, Y Cheng, J Zhang, <strong>L Wang</strong>, S Zhang, Y Lin, … · <span class="pub-venue">CVPR Workshops, 2026</span></span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2602.06442">[arXiv]</a>
           </div>
         </li>
         <li>
           <span class="pub-title">TAGRPO: Boosting GRPO on Image-to-Video Generation with Direct Trajectory Alignment</span>
-          <span class="pub-meta">J Wang, J Lu, G Xu, C Chen, H Yang, <strong>L Wang</strong>, P Chen, M Chen, Z Hu, … · 2026</span>
+          <span class="pub-meta">J Wang, J Lu, G Xu, C Chen, H Yang, <strong>L Wang</strong>, P Chen, M Chen, Z Hu, … · <span class="pub-venue">ICML, 2026</span></span>
           <div class="links-inline">
             <a href="https://arxiv.org/abs/2601.05729">[arXiv]</a>
           </div>
         </li>
         <li>
           <span class="pub-title">PromptEnhancer: A Simple Approach to Enhance Text-to-Image Models via Chain-of-Thought Prompt Rewriting</span>
-          <span class="pub-meta"><strong>L Wang</strong>, X Xing, Y Cheng, Z Zhao, D Li, T Hang, J Tao, Q Wang, R Li, … · CVPR, 2026</span>
+          <span class="pub-meta"><strong>L Wang</strong>, X Xing, Y Cheng, Z Zhao, D Li, T Hang, J Tao, Q Wang, R Li, … · <span class="pub-venue">CVPR, 2026</span></span>
           <div class="links-inline">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:eQOLeE2rZwMC">[Scholar]</a>
+            <a href="https://arxiv.org/abs/2509.04545">[arXiv]</a>
+            <a href="https://github.com/Hunyuan-PromptEnhancer/PromptEnhancer">[Code]</a>
           </div>
         </li>
         <li>
           <span class="pub-title">JarvisEvo: Towards a Self-Evolving Photo Editing Agent with Synergistic Editor-Evaluator Optimization</span>
-          <span class="pub-meta">Y Lin, <strong>L Wang</strong>, K Lin, Z Lin, K Gong, W Li, B Lin, Z Li, S Zhang, Y Peng, … · CVPR, 2026</span>
+          <span class="pub-meta">Y Lin, <strong>L Wang</strong>, K Lin, Z Lin, K Gong, W Li, B Lin, Z Li, S Zhang, Y Peng, … · <span class="pub-venue">CVPR, 2026</span></span>
           <div class="links-inline">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:5nxA0vEk-isC">[Scholar]</a>
-          </div>
-        </li>
-        <li>
-          <span class="pub-title">ChatUMM: Robust Context Tracking for Conversational Interleaved Generation</span>
-          <span class="pub-meta">W Dai, Z Zhao, Y Zhong, Y Cheng, J Zhang, <strong>L Wang</strong>, S Zhang, Y Lin, … · CVPR Workshops, 2026</span>
-          <div class="links-inline">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:KlAtU1dfN6UC">[Scholar]</a>
-          </div>
-        </li>
-        <li>
-          <span class="pub-title">HunyuanVideo: A Systematic Framework For Large Video Generative Models</span>
-          <span class="pub-meta">Aladdin Wang (<strong>core contributor</strong>), Tencent Hunyuan Team · 2024</span>
-          <div class="links-inline">
-            <a href="https://arxiv.org/abs/2412.03603">[arXiv]</a>
+            <a href="https://arxiv.org/abs/2511.23002">[arXiv]</a>
+            <a href="https://github.com/LYL1015/JarvisEvo">[Code]</a>
           </div>
         </li>
         <li>
@@ -220,6 +229,7 @@
           <span class="pub-meta">S Cao, H Chen, …, <strong>L Wang</strong>, … · 2025</span>
           <div class="links-inline">
             <a href="https://arxiv.org/abs/2509.23951">[arXiv]</a>
+            <a href="https://github.com/Tencent-Hunyuan/HunyuanImage-3.0">[Code]</a>
           </div>
         </li>
         <li>
@@ -227,6 +237,7 @@
           <span class="pub-meta">J Tao, Y Zhang, Q Wang, Y Cheng, H Wang, X Bai, Z Zhou, R Li, <strong>L Wang</strong>, … · 2025</span>
           <div class="links-inline">
             <a href="https://arxiv.org/abs/2504.12395">[arXiv]</a>
+            <a href="https://github.com/Tencent-Hunyuan/InstantCharacter">[Code]</a>
           </div>
         </li>
         <li>
@@ -237,8 +248,16 @@
           </div>
         </li>
         <li>
+          <span class="pub-title">HunyuanVideo: A Systematic Framework For Large Video Generative Models</span>
+          <span class="pub-meta"><strong>L Wang</strong> (<em>core contributor</em>, image-to-video) · Tencent Hunyuan Team · 2024</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2412.03603">[arXiv]</a>
+            <a href="https://github.com/Tencent-Hunyuan/HunyuanVideo">[Code]</a>
+          </div>
+        </li>
+        <li>
           <span class="pub-title">Kolors: Effective Training of Diffusion Model for Photorealistic Text-to-Image Synthesis</span>
-          <span class="pub-meta">Kolors Team · 2024</span>
+          <span class="pub-meta"><strong>L Wang</strong> (<em>core contributor</em>) · Kolors Team · 2024</span>
           <div class="links-inline">
             <a href="https://github.com/Kwai-Kolors/Kolors">[Code]</a>
           </div>
