@@ -72,6 +72,14 @@
     .pub-meta { color: var(--muted); font-size: 0.92rem; }
     .links-inline { margin-top: 0.35rem; font-size: 0.9rem; }
     .links-inline a { margin-right: 0.75rem; white-space: nowrap; }
+    .github-stars-badge {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.2rem;
+      height: 1.35em;
+      border: none;
+    }
+    a:hover .github-stars-badge { opacity: 0.9; }
     footer {
       margin-top: 3rem;
       padding-top: 1rem;
@@ -132,16 +140,22 @@
     </section>
 
     <section id="news">
-      <h2>News</h2>
+      <h2>🔥 News</h2>
       <ul>
-        <li><strong>2026</strong> — Papers accepted or in submission spanning prompt enhancement, self-evolving editing agents, conversational interleaved generation, SVG modeling, and trajectory alignment for video diffusion.</li>
-        <li><strong>2025</strong> — Contributed to open technical releases including HunyuanImage&nbsp;3.0, Hunyuan-Game, Kolors, PromptEnhancer, and related Hunyuan product lines.</li>
-        <li><strong>2024</strong> — <em>HunyuanVideo</em> systematic framework for large video generative models (core contributor).</li>
+        <li><strong>Apr 2026</strong> — Released <a href="https://github.com/Tencent-Hunyuan/HY-SOAR">HY-SOAR</a><a href="https://github.com/Tencent-Hunyuan/HY-SOAR"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Tencent-Hunyuan/HY-SOAR?style=social&amp;label=Code" alt="HY-SOAR GitHub stars" /></a>, a reward-free post-training method for diffusion models that goes beyond SFT and RL — no reward models, preference labels, or negative samples needed.</li>
+        <li><strong>Apr 2026</strong> — Released <a href="https://github.com/LeapLabTHU/RvR">RvR</a> <a href="https://github.com/LeapLabTHU/RvR"><img class="github-stars-badge" src="https://img.shields.io/github/stars/LeapLabTHU/RvR?style=social&amp;label=Code" alt="RvR GitHub stars" /></a>,enlarging modification space boosts image refinement in unified multimodal models.</li>
+        <li><strong>Apr 2026</strong> — Released <a href="https://github.com/ximinng/HiVG">HiVG</a> <a href="https://github.com/ximinng/HiVG"><img class="github-stars-badge" src="https://img.shields.io/github/stars/ximinng/HiVG?style=social&amp;label=Code" alt="HiVG GitHub stars" /></a>, a 3B-parameter model that beats GPT-5 and Gemini 2.5 on image-to-SVG via hierarchical SVG tokenization.</li>
+        <li><strong>Jan 2026</strong> — Released <a href="https://arxiv.org/abs/2601.05729">TAGRPO</a> a trajectory alignment method for image-to-video generation that boosts GRPO performance.<strong>ICML 2026!</strong>.</li>
+        <li><strong>Nov 2025</strong> — Released <a href="https://github.com/LYL1015/JarvisEvo">JarvisEvo</a> <a href="https://github.com/LYL1015/JarvisEvo"><img class="github-stars-badge" src="https://img.shields.io/github/stars/LYL1015/JarvisEvo?style=social&amp;label=Code" alt="JarvisEvo GitHub stars" /></a>, a self-evolving photo editing agent that synergistically optimizes both the editor and evaluator.<strong>CVPR 2026!</strong></li>
+        <li><strong>Oct 2025</strong> — Released <a href="https://github.com/Tencent-Hunyuan/HunyuanImage-3.0">HunyuanImage 3.0</a> <a href="https://github.com/Tencent-Hunyuan/HunyuanImage-3.0"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Tencent-Hunyuan/HunyuanImage-3.0?style=social&amp;label=Code" alt="HunyuanImage 3.0 GitHub stars" /></a>, the first open-source unified understanding and generation image model, ranking <strong>#1 on LMArena</strong>.</li>
+        <li><strong>Sep 2025</strong> — Released <a href="https://github.com/Hunyuan-PromptEnhancer/PromptEnhancer">PromptEnhancer</a> <a href="https://github.com/Hunyuan-PromptEnhancer/PromptEnhancer"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Hunyuan-PromptEnhancer/PromptEnhancer?style=social&amp;label=Code" alt="PromptEnhancer GitHub stars" /></a>, powering Hunyuan Image 2.1 to rank <strong>#1 among open-source models</strong> on Artificial Analysis Arena. <strong>CVPR 2026!</strong>.</li>
+        <li><strong>Dec 2024</strong> — Released <a href="https://github.com/Tencent-Hunyuan/HunyuanVideo">HunyuanVideo</a> <a href="https://github.com/Tencent-Hunyuan/HunyuanVideo"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Tencent-Hunyuan/HunyuanVideo?style=social&amp;label=Code" alt="HunyuanVideo GitHub stars" /></a>, a systematic framework for large video generative models. As a core contributor, I am responsible for image-to-video tasks focused on portraits.</li>
+        <li><strong>Jul 2024</strong> — Released <a href="https://github.com/Kwai-Kolors/Kolors">Kolors</a> <a href="https://github.com/Kwai-Kolors/Kolors"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Kwai-Kolors/Kolors?style=social&amp;label=Code" alt="Kolors GitHub stars" /></a>, effective training of diffusion model for photorealistic text-to-image synthesis. As a core contributor, I pioneered the optimization of the noise schedule to enable direct output of 1k images.</li>
       </ul>
     </section>
 
     <section id="publications">
-      <h2>Selected publications</h2>
+      <h2>🌟 Selected publications</h2>
       <ul class="pub-list">
         <li>
           <span class="pub-title">Hierarchical SVG Tokenization: Learning Compact Visual Programs for Scalable Vector Graphics Modeling</span>
@@ -158,10 +172,12 @@
           </div>
         </li>
         <li>
-          <span class="pub-title">SOAR: Self-Correction for Optimal Alignment and Refinement in Diffusion Models</span>
+          <span class="pub-title">HY-SOAR: Self-Correction for Optimal Alignment and Refinement in Diffusion Models</span>
           <span class="pub-meta">Y Qin, <strong>L Wang</strong>, H Fei, R Zimmermann, L Bo, Q Lu, C Wang · 2026</span>
           <div class="links-inline">
             <a href="https://arxiv.org/abs/2604.12617">[arXiv]</a>
+            <a href="https://hy-soar.github.io/">[Project]</a>
+            <a href="https://github.com/Tencent-Hunyuan/HY-SOAR"><img class="github-stars-badge" src="https://img.shields.io/github/stars/Tencent-Hunyuan/HY-SOAR?style=social&amp;label=Code" alt="HY-SOAR GitHub stars" /></a>
           </div>
         </li>
         <li>
