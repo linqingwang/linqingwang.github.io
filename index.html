@@ -1,18 +1,224 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Linqing Wang — Researcher at Tencent Hunyuan; multimodal generation and vision." />
+  <title>Linqing Wang</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #444;
+      --link: #0b57d0;
+      --link-hover: #0842a0;
+      --border: #e8e8e8;
+      --bg: #fafafa;
+      --maxw: 42rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 2rem 1.25rem 4rem;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin: 0.6rem 0; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+    }
+    li { margin: 0.35rem 0; }
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .pub-list li {
+      margin: 0.85rem 0;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-title { font-weight: 600; display: block; margin-bottom: 0.2rem; }
+    .pub-meta { color: var(--muted); font-size: 0.92rem; }
+    .links-inline { margin-top: 0.35rem; font-size: 0.9rem; }
+    .links-inline a { margin-right: 0.75rem; white-space: nowrap; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .scholar-link { margin-top: 0.75rem; }
+  </style>
+</head>
 <body>
+  <div class="wrap">
+    <header>
+      <h1>Linqing Wang <span lang="zh" style="font-weight: 400; color: var(--muted)">(王林青)</span></h1>
+      <p class="subtitle">Tencent Hunyuan · Multimodal generation &amp; computer vision</p>
+    </header>
 
-<h1>我青青来了</h1>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I work on large-scale multimodal foundation models and their applications at
+        <strong>Tencent Hunyuan</strong>, focusing on text-to-image / video generation,
+        unified understanding–generation models, and post-training for diffusion systems.
+        I was previously involved in robotics and bionics research during graduate study
+        at <strong>Beihang University (BUAA)</strong>.
+      </p>
+      <p class="scholar-link">
+        <a href="https://scholar.google.com/citations?user=Hy12lcEAAAAJ&amp;hl=en">Google Scholar</a>
+      </p>
+    </section>
 
-<p>Hello my friend!</p>
-<p> 我是Link Wang (我青青来了)，这是我的个人网站。</p>
-<p>我的微博是:我青青来了。</p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我。</p>
-<hr />
-<ul>
-  <li> <a href="https://www.zhihu.com/people/xiao-gui-tou-96-83">知乎</a> </li>
-  <li> <a href="https://me.csdn.net/weixin_41461580">我的博客</a> </li>
-</ul>
-<img src="https://wx4.sinaimg.cn/mw1024/b081ae15ly1gbyjaycb0aj21gs1acdnt.jpg"  width="190" height="167" alt="Link Wang img"/>
-<hr />
+    <section id="news">
+      <h2>News</h2>
+      <ul>
+        <li><strong>2026</strong> — Papers accepted or in submission spanning prompt enhancement, self-evolving editing agents, conversational interleaved generation, SVG modeling, and trajectory alignment for video diffusion.</li>
+        <li><strong>2025</strong> — Contributed to open technical releases including HunyuanImage&nbsp;3.0, Hunyuan-Game, Kolors, PromptEnhancer, and related Hunyuan product lines.</li>
+        <li><strong>2024</strong> — <em>HunyuanVideo</em> systematic framework for large video generative models (core contributor).</li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Selected publications</h2>
+      <ul class="pub-list">
+        <li>
+          <span class="pub-title">Hierarchical SVG Tokenization: Learning Compact Visual Programs for Scalable Vector Graphics Modeling</span>
+          <span class="pub-meta">X Xing, Z Xue, Z Li, W Liang, <strong>L Wang</strong>, Z Yang, T Hang, Z Yin, Q Lu, … · 2026</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2604.05072">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models</span>
+          <span class="pub-meta">J Guo, <strong>L Wang</strong>, J Wang, Y Yue, Z Liu, Z Zhao, Q Lu, G Huang, C Wang · 2026</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2604.25636">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">SOAR: Self-Correction for Optimal Alignment and Refinement in Diffusion Models</span>
+          <span class="pub-meta">Y Qin, <strong>L Wang</strong>, H Fei, R Zimmermann, L Bo, Q Lu, C Wang · 2026</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2604.12617">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">TAGRPO: Boosting GRPO on Image-to-Video Generation with Direct Trajectory Alignment</span>
+          <span class="pub-meta">J Wang, J Lu, G Xu, C Chen, H Yang, <strong>L Wang</strong>, P Chen, M Chen, Z Hu, … · 2026</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2601.05729">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">PromptEnhancer: A Simple Approach to Enhance Text-to-Image Models via Chain-of-Thought Prompt Rewriting</span>
+          <span class="pub-meta"><strong>L Wang</strong>, X Xing, Y Cheng, Z Zhao, D Li, T Hang, J Tao, Q Wang, R Li, … · CVPR, 2026</span>
+          <div class="links-inline">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:eQOLeE2rZwMC">[Scholar]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">JarvisEvo: Towards a Self-Evolving Photo Editing Agent with Synergistic Editor-Evaluator Optimization</span>
+          <span class="pub-meta">Y Lin, <strong>L Wang</strong>, K Lin, Z Lin, K Gong, W Li, B Lin, Z Li, S Zhang, Y Peng, … · CVPR, 2026</span>
+          <div class="links-inline">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:5nxA0vEk-isC">[Scholar]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">ChatUMM: Robust Context Tracking for Conversational Interleaved Generation</span>
+          <span class="pub-meta">W Dai, Z Zhao, Y Zhong, Y Cheng, J Zhang, <strong>L Wang</strong>, S Zhang, Y Lin, … · CVPR Workshops, 2026</span>
+          <div class="links-inline">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Hy12lcEAAAAJ&citation_for_view=Hy12lcEAAAAJ:KlAtU1dfN6UC">[Scholar]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">HunyuanVideo: A Systematic Framework For Large Video Generative Models</span>
+          <span class="pub-meta">Aladdin Wang (<strong>core contributor</strong>), Tencent Hunyuan Team · 2024</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2412.03603">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">HunyuanImage 3.0 Technical Report</span>
+          <span class="pub-meta">S Cao, H Chen, …, <strong>L Wang</strong>, … · 2025</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2509.23951">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">InstantCharacter: Personalize Any Characters with a Scalable Diffusion Transformer Framework</span>
+          <span class="pub-meta">J Tao, Y Zhang, Q Wang, Y Cheng, H Wang, X Bai, Z Zhou, R Li, <strong>L Wang</strong>, … · 2025</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2504.12395">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">Hunyuan-game: Industrial-grade Intelligent Game Creation Model</span>
+          <span class="pub-meta">R Li, C Zhou, …, <strong>L Wang</strong>, … · 2025</span>
+          <div class="links-inline">
+            <a href="https://arxiv.org/abs/2505.14135">[arXiv]</a>
+          </div>
+        </li>
+        <li>
+          <span class="pub-title">Kolors: Effective Training of Diffusion Model for Photorealistic Text-to-Image Synthesis</span>
+          <span class="pub-meta">Kolors Team · 2024</span>
+          <div class="links-inline">
+            <a href="https://github.com/Kwai-Kolors/Kolors">[Code]</a>
+          </div>
+        </li>
+      </ul>
+      <p style="font-size: 0.92rem; color: var(--muted); margin-top: 1rem;">
+        Full list and citation counts on
+        <a href="https://scholar.google.com/citations?user=Hy12lcEAAAAJ&amp;hl=en">Google Scholar</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <!-- Update with your preferred public email -->
+      <p>Academic / collaboration: please reach out via institutional channels or
+        <a href="https://scholar.google.com/citations?user=Hy12lcEAAAAJ&amp;hl=en">Google Scholar</a> profile.</p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Linqing Wang
+    </footer>
+  </div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
